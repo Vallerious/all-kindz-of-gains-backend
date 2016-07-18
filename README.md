@@ -1,6 +1,7 @@
 # all-kindz-of-gains-backend
 NodeJS backend for our fitness app.
 
+To run the web/api server type: **npm start**
 
 ## MongoDB
 * https://www.mongodb.com/download-center#community
@@ -9,3 +10,4 @@ NodeJS backend for our fitness app.
 * go to the mongodb folder...C:\Program Files\MongoDB\Server\3.2\bin
 * Open CMD and type "mongod"
 * If you need UI for working with MongoDB use Robomongo - https://robomongo.org/download
+

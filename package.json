@@ -1,0 +1,19 @@
+{
+  "name": "matching-app",
+  "version": "0.0.1",
+  "description": "matching application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "express": "^4.13.1",
+    "express-jwt": "^3.0.1",
+    "jsonwebtoken": "^5.0.4",
+    "mongodb": "^2.1.21",
+    "mongoose": "^4.4.19",
+    "mongoose-simple-random": "^0.3.3",
+    "when": "^3.7.7"
+  }
+}

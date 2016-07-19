@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Chest",
+        "muscles": ["Upper Chest", "Mid Chest", "Lower Chest"]
+    },
+    {
+        "name": "Back",
+        "muscles": ["Traps", "Lower Back", "Lats", "Mid Back"]
+    },
+    {
+        "name": "Shoulders",
+        "muscles": ["Front Delt", "Side Delt", "Rear Delt"]
+    },
+    {
+        "name": "Arms",
+        "muscles": ["Triceps", "Forearms", "Biceps"]
+    },
+    {
+        "name": "Legs",
+        "muscles": ["Quads", "Hamstrings", "Calves", "Glutes"]
+    },
+    {
+        "name": "Cardio",
+        "muscles": ["HIIT", "Running", "Treadmill", "Rope-skipping", "Stairs", "Other"]
+    },
+    {
+        "name": "Other",
+        "muscles": ["Strongman", "Sprints", "Powerlifting", "Weightlifting"]
+    }
+]

@@ -12,7 +12,7 @@ module.exports = function (url) {
             return;
         }
 
-        console.log('Database up and running...')
+        console.log('Database up and running...');
     });
 
     db.on('error', function (err) {

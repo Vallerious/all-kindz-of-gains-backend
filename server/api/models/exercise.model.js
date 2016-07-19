@@ -31,23 +31,7 @@ let ExerciseSchema = new Schema({
 
 let Exercise = mongoose.model('Exercise', ExerciseSchema);
 
-seedMuscleGroups();
 seedExercises();
-
-function seedMuscleGroups() {
-    let MuscleGroups = mongoose.model('MuscleGroups', new Schema({
-        name: String,
-        muscles: []
-    }));
-
-    MuscleGroups.count({}, (err, count) => {
-        if (!count) {
-            let muscleGroups = require('./../../db/seeds/muscleGroups.json');
-            
-            MuscleGroups.collection.insert(muscleGroups);
-        }
-    });
-}
 
 function seedExercises() {
     Exercise.count({}, (err, count) => {

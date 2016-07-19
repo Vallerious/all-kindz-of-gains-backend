@@ -57,6 +57,10 @@ let UserSchema = new Schema({
         originalName: String
     }],
     profileImage: Number,
+    progress: [{
+        date: Date,
+        weight: Number
+    }]
 });
 
 UserSchema.pre('save', function (next) {

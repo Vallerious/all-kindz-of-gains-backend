@@ -85,8 +85,8 @@ UserSchema.methods.verifyPassword = function (password, salt, hash) {
 };
 
 UserSchema.statics.addUser = (data) => {
-    let {email, password, confirmPass, firstName, lastName, gender, city, country, dateOfBirth} = data;
-    let user = new User({ email, password, confirmPass, firstName, lastName, gender, city, country, dateOfBirth });
+    let { email, password, confirmPass, firstName, lastName } = data;
+    let user = new User({ email, password, confirmPass, firstName, lastName  });
 
     return user.save().then((user) => { return user; });
 };
@@ -120,6 +120,22 @@ UserSchema.statics.verifyUser = (email, password) => {
     return deffered.promise;
 };
 
+function seedUsers(userSch) {
+    userSch.count({}, (err, count) => {
+        if (!count) {
+            let user = new User({
+                email: "admin@admin.com",
+                password: "123",
+                confirmPass: "123",
+                firstName: "admin",
+                lastName: "adminov"
+            });
+
+            user.save();
+        }
+    });
+}
+
 function validateDate(timestamp) {
     return timestamp && (new Date(timestamp)).getTime() > 1;
 }
@@ -145,5 +161,7 @@ function pbkdfEncryptPassword(password, salt) {
 }
 
 let User = mongoose.model('User', UserSchema);
+
+seedUsers(User);
 
 module.exports = User;

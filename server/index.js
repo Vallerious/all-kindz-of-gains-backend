@@ -5,11 +5,13 @@ module.exports = {
 }
 
 function start() {
-    let app = require('express')(),
+    let express = require('express'),
+        app = express(),
         api = require('./api/'),
         config = require('./config/'),
-        port = config.port
+        port = config.port;
 
+    app.use('/', express.static(__dirname + '/public/build/' ));
     require('./db/connection')(config.db.url);
     require('./middleware/app.middleware')(app);
     app.use('/api/', api);
@@ -17,7 +19,7 @@ function start() {
     app.use((err, req, res, next) => {
         if (err) {
             console.log(err.message);
-            res.status(err.status || 500).send({error: err.message});
+            res.status(err.status || 200).send({error: err.message});
         }
     });
 

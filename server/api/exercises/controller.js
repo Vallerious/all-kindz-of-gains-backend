@@ -13,5 +13,8 @@ module.exports = {
 
             query.exec().then((data) => { res.json(data) });
         }
+    },
+        addExercise(req, res, next) {
+            debugger
     }
 }

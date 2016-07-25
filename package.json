@@ -4,7 +4,9 @@
   "description": "matching application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "node-debug index.js",
+    "nodemon": "nodemon index.js"
   },
   "dependencies": {
     "body-parser": "^1.13.2",

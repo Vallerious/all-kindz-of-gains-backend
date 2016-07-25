@@ -4,7 +4,7 @@ let config = {
 	dev: 'development',
 	test: 'testing',
 	prod: 'production',
-	port: process.env.PORT || 3000,
+	port: process.env.PORT || 5001,
 	expireTime: 365 * 24 * 60 * 60 * 1,
 	secrets: {
 		jwt: 'dage'

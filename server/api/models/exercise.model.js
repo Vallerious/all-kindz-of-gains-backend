@@ -14,14 +14,7 @@ let ExerciseSchema = new Schema({
     },
     mainMuscleGroup: String,
     muscles: {
-        type: [],
-        required: [true, 'Muscle groups field is required!'],
-        validate: {
-            validator: (val) => {
-                return exerciseUtils.getMuscleGroups().indexOf(val) > -1
-            },
-            message: '{VALUE} is not a valid muscle group!'
-        }
+        type: []
     },
     isPush: Boolean,
     videoLink: String,

@@ -17,8 +17,11 @@ exports.decodeToken = () => {
 
 exports.assignToken = () => {
     return (req, res, next) => {
+        if(req.user){
         req.user.access_token = signToken(req.user._id);
         res.json(req.user);
+    }
+    next();
     }
 };
 

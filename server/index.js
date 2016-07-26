@@ -11,7 +11,7 @@ function start() {
         config = require('./config/'),
         port = config.port;
 
-    app.use('/', express.static(__dirname + '/public/build/' ));
+    app.use('/', express.static(__dirname + '/public/build/'));
     require('./db/connection')(config.db.url);
     require('./middleware/app.middleware')(app);
     app.use('/api/', api);
@@ -19,8 +19,12 @@ function start() {
     app.use((err, req, res, next) => {
         if (err) {
             console.log(err.message);
-            res.status(err.status || 200).send({error: err.message});
+            res.status(err.status || 200).send({ error: err.message });
         }
+    });
+
+    app.get('*', function (req, res) {
+        res.sendFile(__dirname + '/public/build/index.html');
     });
 
     return function () {

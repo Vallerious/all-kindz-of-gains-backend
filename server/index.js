@@ -11,7 +11,7 @@ function start() {
         config = require('./config/'),
         port = config.port;
 
-    app.use('/', express.static(__dirname + '/public/build/'));
+    app.use('/', express.static(__dirname + '/public/public/'));
     require('./db/connection')(config.db.url);
     require('./middleware/app.middleware')(app);
     app.use('/api/', api);
@@ -24,7 +24,7 @@ function start() {
     });
 
     app.get('*', function (req, res) {
-        res.sendFile(__dirname + '/public/build/index.html');
+        res.sendFile(__dirname + '/public/public/index.html');
     });
 
     return function () {

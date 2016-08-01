@@ -6,5 +6,6 @@ let authRouter = require('express').Router(),
 
 authRouter.get('/getDictionary', dictionary.getDictionary);
 authRouter.post('/editUser', editUser.editUser);
+authRouter.post('/editMesurements', editUser.editMesurements);
 
 module.exports = authRouter;

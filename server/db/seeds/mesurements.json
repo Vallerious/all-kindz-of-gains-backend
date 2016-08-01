@@ -1,0 +1,32 @@
+[
+    {
+        "userId":"578ce5587ff135b8144ad8c8",
+        "weight":90,
+        "height":100,
+        "bodyFat":20,
+        "shoulders":100,
+        "chest":120,
+        "arms":{
+            "left":40,
+            "right":40
+        },
+        "beforeArm":{
+            "left":40,
+            "right":40
+        },
+        "waist":100,
+        "hip":90,
+        "thigh":{
+            "left":40,
+            "right":40
+        },
+        "calf":{
+            "left":40,
+            "right":40
+        },
+        "neck":40,
+        "wrist":40,
+        "ankle":20,
+        "date":"2016-08-01T08:09:22.156Z"
+    }
+]

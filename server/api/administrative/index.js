@@ -5,6 +5,7 @@ let authRouter = require('express').Router(),
     editUser =  require('./editUser');
 
 authRouter.get('/getDictionary', dictionary.getDictionary);
+authRouter.get('/getSubMuscleGroups', dictionary.getSubMuscleGroups);
 authRouter.post('/editUser', editUser.editUser);
 authRouter.post('/editMesurements', editUser.editMesurements);
 

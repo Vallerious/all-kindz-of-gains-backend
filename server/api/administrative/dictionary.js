@@ -6,7 +6,9 @@ module.exports = {
         try {
         if (req.query.dictionaryName) {
             let dictionaryModel = require('./../models/'+req.query.dictionaryName+'.model');
-                dictionaryModel.find({  }).exec().then((data) => res.json(data)); 
+                dictionaryModel.find({  },'name').exec().then(function( data ){
+                    res.json(data);
+                }); 
         } else {
             res.json({"error":"Dictionary name not provided!"})
         }

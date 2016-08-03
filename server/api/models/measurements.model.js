@@ -5,7 +5,7 @@ let mongoose = require('mongoose'),
     crypto = require('crypto'),
     Schema = mongoose.Schema;
 
-let MesurementsSchema = new Schema({
+let MeasurementsSchema = new Schema({
     userId: {
         type: String,
         required: [true],
@@ -90,18 +90,18 @@ let MesurementsSchema = new Schema({
 
 
 
-let Mesurements = mongoose.model('Mesurements', MesurementsSchema);
+let Measurements = mongoose.model('Mesurements', MeasurementsSchema);
 
 
 function seedMesurements() {
-    Mesurements.count({}, (err, count) => {
+    Measurements.count({}, (err, count) => {
         if (!count) {
             let mesurements = require('./../../db/seeds/mesurements.json');
 
-            Mesurements.collection.insert(mesurements);
+            Measurements.collection.insert(mesurements);
         }
     });
 }
 
 seedMesurements();
-module.exports = Mesurements;
+module.exports = Measurements;

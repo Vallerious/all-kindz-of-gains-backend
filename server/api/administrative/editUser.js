@@ -28,7 +28,7 @@ module.exports = {
         }
 
     },
-    editmeasurements(req, res, next) {
+    editMeasurements(req, res, next) {
        let measurementsModel = require('./../models/measurements.model'); 
        let userModel = require('./../models/user.model');
         try {
@@ -55,7 +55,7 @@ module.exports = {
             res.json({"err":error.message}) 
         }
     },
-    getmeasurements(req, res, next) {
+    getMeasurements(req, res, next) {
        let measurementsModel = require('./../models/measurements.model'); 
        let userModel = require('./../models/user.model');
         try {

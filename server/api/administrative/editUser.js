@@ -31,6 +31,7 @@ module.exports = {
     editMeasurements(req, res, next) {
        let measurementsModel = require('./../models/measurements.model'); 
        let userModel = require('./../models/user.model');
+       let measurementsMerged = {};
         try {
         if (req.body.measurements && req.body.measurements.userId) {
 
@@ -39,10 +40,10 @@ module.exports = {
                    return data[0]._doc; 
                 }).then(function(data){
                     req.body.measurements.date = req.body.measurements.date || new Date().toISOString(); 
-                    let measurementsMerged = Object.assign(data,req.body.measurements);
+                    measurementsMerged = Object.assign(data,req.body.measurements);
                     measurementsModel.where({ userId: req.body.measurements.userId }).update(measurementsMerged, function (err, data) {
                         if (!err) {
-                            res.json({"res":"Edit was successfull!"});
+                            res.json({"res":"Edit was successfull!", "userMeasurments":measurementsMerged});
                         } else {
                             res.json({"err":err.message});
                         }

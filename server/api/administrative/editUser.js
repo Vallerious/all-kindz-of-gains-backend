@@ -54,5 +54,22 @@ module.exports = {
         } catch (error) {
             res.json({"err":error.message}) 
         }
+    },
+    getMesurements(req, res, next) {
+       let mesurementsModel = require('./../models/mesurements.model'); 
+       let userModel = require('./../models/user.model');
+        try {
+        if (req.query && req.query.userId) {
+
+                mesurementsModel.find({ userId: req.query.userId  }).exec().then(function(data){
+                   //Directly [0] because the email is unique
+                   res.json(data); 
+                });
+        } else {
+            res.json({"err":"UserId not supplied!"})
+        }
+        } catch (error) {
+            res.json({"err":error.message}) 
+        }
     }
 }

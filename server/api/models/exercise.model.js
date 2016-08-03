@@ -19,7 +19,8 @@ let ExerciseSchema = new Schema({
     isPush: Boolean,
     videoLink: String,
     pictures: [],
-    maxes: []
+    maxes: [],
+    score: Number
 });
 
 let Exercise = mongoose.model('Exercise', ExerciseSchema);

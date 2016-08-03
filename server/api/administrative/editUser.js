@@ -28,19 +28,19 @@ module.exports = {
         }
 
     },
-    editMesurements(req, res, next) {
-       let mesurementsModel = require('./../models/mesurements.model'); 
+    editmeasurements(req, res, next) {
+       let measurementsModel = require('./../models/measurements.model'); 
        let userModel = require('./../models/user.model');
         try {
-        if (req.body.mesurements && req.body.mesurements.userId) {
+        if (req.body.measurements && req.body.measurements.userId) {
 
-                mesurementsModel.find({ userId: req.body.mesurements.userId  }).exec().then(function(data){
+                measurementsModel.find({ userId: req.body.measurements.userId  }).exec().then(function(data){
                    //Directly [0] because the email is unique
                    return data[0]._doc; 
                 }).then(function(data){
-                    req.body.mesurements.date = req.body.mesurements.date || new Date().toISOString(); 
-                    let mesurementsMerged = Object.assign(data,req.body.mesurements);
-                    mesurementsModel.where({ userId: req.body.mesurements.userId }).update(mesurementsMerged, function (err, data) {
+                    req.body.measurements.date = req.body.measurements.date || new Date().toISOString(); 
+                    let measurementsMerged = Object.assign(data,req.body.measurements);
+                    measurementsModel.where({ userId: req.body.measurements.userId }).update(measurementsMerged, function (err, data) {
                         if (!err) {
                             res.json({"res":"Edit was successfull!"});
                         } else {
@@ -55,13 +55,13 @@ module.exports = {
             res.json({"err":error.message}) 
         }
     },
-    getMesurements(req, res, next) {
-       let mesurementsModel = require('./../models/mesurements.model'); 
+    getmeasurements(req, res, next) {
+       let measurementsModel = require('./../models/measurements.model'); 
        let userModel = require('./../models/user.model');
         try {
         if (req.query && req.query.userId) {
 
-                mesurementsModel.find({ userId: req.query.userId  }).exec().then(function(data){
+                measurementsModel.find({ userId: req.query.userId  }).exec().then(function(data){
                    //Directly [0] because the email is unique
                    res.json(data); 
                 });

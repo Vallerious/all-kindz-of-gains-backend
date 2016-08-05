@@ -13,7 +13,7 @@ let UserSchema = new Schema({
         set: toLower,
         validate: {
             validator: (val) => {
-                return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val);
+                return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val) || val === null;
             },
             message: '{VALUE} is not a valid email!'
         }
@@ -38,25 +38,25 @@ let UserSchema = new Schema({
         required: [false, 'Gender is required!'],
         validate: {
             validator: (val) => {
-                return val === 'M' || val === 'F';
+                return val === 'M' || val === 'F' || val === null;
             },
             message: '{VALUE} is not a valid gender!'
         }
     },
     dateOfBirth: {
-        type: Number,
-        required: [false, 'Date of birth is required!'],
-        validate: {
-            validator: validateDate,
-            message: '{VALUE} is not a valid date!'
-        }
+        type: String,
+        // required: [false, 'Date of birth is required!'],
+        // validate: {
+        //     validator: validateDate,
+        //     message: '{VALUE} is not a valid date!'
+        // }
     },
     images: [{
         id: Number,
         generatedName: String,
         originalName: String
     }],
-    profileImage: Number,
+    profileImage: String,
     progress: [{
         date: Date,
         weight: Number
@@ -141,7 +141,7 @@ function seedUsers(userSch) {
 }
 
 function validateDate(timestamp) {
-    return timestamp && (new Date(timestamp)).getTime() > 1;
+    return (timestamp && (new Date(timestamp)).getTime() > 1) || timestamp === null;
 }
 
 function toLower(text) {

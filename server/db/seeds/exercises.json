@@ -4,7 +4,7 @@
         "mainMuscleGroup": "Back",
         "muscles": ["Hamstrings", "Lower Back", "Traps", "Glutes"],
         "isPush": false,
-        "videoLink": "https://www.youtube.com/watch?v=d5eGGZXb0Is",
+        "videoLink": ["https://www.youtube.com/watch?v=d5eGGZXb0Is"],
         "pictures": [],
         "maxes": []
     },
@@ -13,7 +13,7 @@
         "mainMuscleGroup": "Chest",
         "muscles": ["Mid Chest", "Lower Chest", "Upper Chest", "Triceps", "Front Delt"],
         "isPush": true,
-        "videoLink": "https://www.youtube.com/watch?v=gRVjAtPip0Y",
+        "videoLink": ["https://www.youtube.com/watch?v=gRVjAtPip0Y"],
         "pictures": [],
         "maxes": []
     }

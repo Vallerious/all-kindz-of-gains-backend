@@ -4,9 +4,11 @@ module.exports = {
             "access_token": userObject["access_token"],
             "email": userObject.email,
             "id": userObject._id,
-            "images": userObject.images,
+            "profileImage": userObject.profileImage,
             "firstName": userObject.firstName,
-            "lastName": userObject.lastName
+            "lastName": userObject.lastName,
+            "gender": userObject.gender,
+            "dateOfBirth": userObject.dateOfBirth
         }
     }
 }

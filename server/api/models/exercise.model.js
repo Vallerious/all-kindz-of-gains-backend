@@ -12,12 +12,13 @@ let ExerciseSchema = new Schema({
         type: String,
         required: [true, 'Name field is required!']
     },
+    description: String,
     mainMuscleGroup: String,
     muscles: {
         type: []
     },
     isPush: Boolean,
-    videoLink: String,
+    videoLink: [String],
     pictures: [],
     maxes: [],
     score: Number

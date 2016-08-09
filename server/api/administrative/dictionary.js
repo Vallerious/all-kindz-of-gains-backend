@@ -22,14 +22,13 @@ module.exports = {
         if (req.query.muscleGroup) {
             let dictionaryModel = require('./../models/muscleGroups.model');
                 dictionaryModel.find({ name: req.query.muscleGroup }).exec().then(function( data ){
-
                     //res.json({key:data[0]._doc.muscles});
 
                     let musclesArr = [];
                     for(let i=0;i<data[0]._doc.muscles.length;i++ ){
-                        musclesArr.push({key:data[0]._doc.muscles[i], val: data[0]._doc.muscles[i] })
+                        musclesArr.push({value:data[0]._doc.muscles[i], label: data[0]._doc.muscles[i] })
                     }
-                    res.json(musclesArr)
+                    res.send(musclesArr)
                 }); 
         } else {
             res.json({"error":"Dictionary name not provided!"})

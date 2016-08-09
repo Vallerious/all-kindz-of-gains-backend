@@ -16,10 +16,8 @@ module.exports = {
         }
     },
     addExercise(req, res, next) {
-        debugger
         if (req.body && req.body.name && req.body.mainMuscleGroup) {
             exercises.findById(req.body._id, function (err, found) {
-                debugger
                 let exerciseObj = {};
                 if (found && found._doc) {
                     exerciseObj = new exercises({
@@ -32,7 +30,6 @@ module.exports = {
                         "maxes": req.body.maxes || found._doc.maxes || []
                     });
                     exercises.where({ _id: req.body._id }).update(exerciseObj, function (err, data) {
-                        debugger
                         if (!err) {
                             res.json("Edit was successfull!");
                         } else {

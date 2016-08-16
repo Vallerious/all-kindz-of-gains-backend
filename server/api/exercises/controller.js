@@ -61,5 +61,21 @@ module.exports = {
         } else {
             res.json("Wrong validation parameters!");
         }
+    },
+
+    getExercises(req, res) {
+        var findParams = {};
+
+        if (req.query.exerciseId) {
+            findParams = {
+                _id: req.query.exerciseId
+            };
+        }
+
+        exercises
+            .find(findParams)
+            .exec()
+            .then((data) => res.json({exercises: data}))
+            .catch((err) => res.json(err));
     }
-}
+};

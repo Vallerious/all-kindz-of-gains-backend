@@ -17,6 +17,7 @@ let ExerciseSchema = new Schema({
     muscles: {
         type: []
     },
+    equipment: [],
     isPush: Boolean,
     videoLink: [String],
     pictures: [],

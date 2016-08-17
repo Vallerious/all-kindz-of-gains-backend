@@ -40,6 +40,7 @@ module.exports = {
                     exerciseObj = new exercises({
                         "name": req.body.name,
                         "mainMuscleGroup": req.body.mainMuscleGroup,
+                        "description": req.body.description || "",
                         "muscles": req.body.muscles || [],
                         "equipment": req.body.equipment || [],
                         "videoLink": req.body.videoLink || "",

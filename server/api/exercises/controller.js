@@ -20,7 +20,7 @@ module.exports = {
             exercises.findById(req.body._id, function (err, found) {
                 let exerciseObj = {};
                 if (found && found._doc) {
-                    exerciseObj = new exercises({
+                    exerciseObj = {
                         "name": req.body.name || found._doc.name,
                         "mainMuscleGroup": req.body.mainMuscleGroup || found._doc.mainMuscleGroup,
                         "muscles": req.body.muscles || found._doc.muscles || [],
@@ -28,7 +28,7 @@ module.exports = {
                         "videoLink": req.body.videoLink || found._doc.videoLink || "",
                         "pictures": req.body.pictures || found._doc.pictures || "",
                         "maxes": req.body.maxes || found._doc.maxes || []
-                    });
+                    };
                     exercises.where({ _id: req.body._id }).update(exerciseObj, function (err, data) {
                         if (!err) {
                             res.json("Edit was successfull!");

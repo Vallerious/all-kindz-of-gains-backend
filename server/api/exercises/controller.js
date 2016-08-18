@@ -23,6 +23,7 @@ module.exports = {
                     exerciseObj = {
                         "name": req.body.name || found._doc.name,
                         "mainMuscleGroup": req.body.mainMuscleGroup || found._doc.mainMuscleGroup,
+                        "description": req.body.description || "",
                         "muscles": req.body.muscles || found._doc.muscles || [],
                         "equipment": req.body.equipment || found._doc.equipment || [],
                         "videoLink": req.body.videoLink || found._doc.videoLink || "",

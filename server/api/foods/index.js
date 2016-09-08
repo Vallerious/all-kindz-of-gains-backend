@@ -20,10 +20,10 @@ authRouter.get('/', (req, res, next) => {
     if (req.query.id) {
         let {id} = req.query;
 
-        Foods.findById({ _id: id }, selectObj)
+        Foods.findById({ _id: id }, selectObj).limit(100)
             .exec().then((data) => res.json(data));
     } else {
-        let query = Foods.find({}, selectObj);
+        let query = Foods.find({}, selectObj).limit(100);
 
         query.exec().then((data) => { 
             res.json(data) 

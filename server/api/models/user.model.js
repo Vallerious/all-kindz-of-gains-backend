@@ -45,6 +45,7 @@ let UserSchema = new Schema({
     },
     dateOfBirth: {
         type: String,
+        default: (new Date()).toISOString()
         // required: [false, 'Date of birth is required!'],
         // validate: {
         //     validator: validateDate,
